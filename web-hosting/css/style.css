@@ -1217,7 +1217,7 @@ header a.logo img {
 .learn-more-section {
   padding: 120px 0;
   background-size: cover;
-  background-image: url("../img/parallax-bg.jpg");
+  background-image: url("../img/parallax-bg.png");
 }
 
 .learn-more-section .text-area {
