@@ -1015,7 +1015,9 @@ header a.logo img {
   transform: translateY(0);
   transition: transform 0.25s ease-out;
 }
-
+.about-media:hover {
+  cursor: pointer;
+}
 .about-media .about-icon i {
   color: #ffffff;
   font-size: 48px;
