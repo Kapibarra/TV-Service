@@ -635,7 +635,7 @@
     <section class="contact-sec" id="contact">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-12 col-md-3 text-center">
+          <div class="col-12 col-md-6 text-center">
             <div class="user-img">
               <img
                 src="tvservice/img/footer-logo.png"
@@ -656,10 +656,10 @@
               <a href="tel:+74993985410">8-499-398-54-10</a>
             </p>
           </div>
-          <div class="col-12 col-md-9">
+          <div class="col-12 col-md-6">
             <div class="row">
               <div class="col-12" id="result"></div>
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-12">
                 <form
                   class="row contact-form row-padding"
                   id="my-form"
@@ -679,29 +679,22 @@
                       placeholder="Контактный Телефон"
                       class="form-control"
                     />
-                    <input
-                      type="email"
-                      name="userEmail"
-                      placeholder="E-mail"
+                    <textarea
                       class="form-control"
-                    />
+                      name="userMessage"
+                      rows="6"
+                      placeholder="Сообщение"
+                    ></textarea>
+                    <p id="my-form-status"></p>
+                    <button
+                      type="submit"
+                      class="btn btn-medium btn-rounded btn-trans-white rounded-pill w-100 contact_btn main-font"
+                      id="my-form-button"
+                    >
+                      Отправить
+                    </button>
                   </div>
                 </form>
-              </div>
-              <div class="col-12 col-md-6 contact-form">
-                <textarea
-                  class="form-control"
-                  name="userMessage"
-                  rows="6"
-                  placeholder="Сообщение"
-                ></textarea>
-                <button
-                  type="submit"
-                  class="btn btn-medium btn-rounded btn-trans-white rounded-pill w-100 contact_btn main-font"
-                  id="my-form-button"
-                >
-                  Отправить
-                </button>
               </div>
             </div>
           </div>
@@ -727,7 +720,7 @@
         })
           .then((response) => {
             if (response.ok) {
-              status.innerHTML = "Thanks for your submission!";
+              status.innerHTML = "Заявка отправлена!";
               form.reset();
             } else {
               response.json().then((data) => {
@@ -736,14 +729,13 @@
                     .map((error) => error["message"])
                     .join(", ");
                 } else {
-                  status.innerHTML =
-                    "Oops! There was a problem submitting your form";
+                  status.innerHTML = "Ой! Что то пошло не так";
                 }
               });
             }
           })
           .catch((error) => {
-            status.innerHTML = "Oops! There was a problem submitting your form";
+            status.innerHTML = "Ой! Что то пошло не так";
           });
       }
       form.addEventListener("submit", handleSubmit);
